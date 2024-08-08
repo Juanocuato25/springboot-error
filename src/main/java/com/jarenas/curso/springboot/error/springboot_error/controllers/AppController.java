@@ -26,10 +26,19 @@ public class AppController {
         return "Ok 200";
     }
 
+    // @GetMapping("/show/{id}")
+    // public ResponseEntity<?> showById(@PathVariable Long id){
+    //     Optional<User> optionalUser = userService.findById(id);
+    //     if (optionalUser.isEmpty()) {
+    //         return ResponseEntity.notFound().build();
+    //     }
+    //     return ResponseEntity.ok(optionalUser.orElseThrow());
+    // }
+    
     @GetMapping("/show/{id}")
-    public User showById(@PathVariable Long id){
+    public User showByIdU(@PathVariable Long id){
         User user = userService.findById(id).orElseThrow(()-> new UserNotFoundException("Error, user not found"));
-        System.out.println(user.getName());
+        // System.out.println(user.getName());
         return  user;
     }
 
